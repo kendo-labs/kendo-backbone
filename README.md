@@ -1,0 +1,80 @@
+# Kendo-Backbone
+
+Sample projects and extensions to integrate
+[Kendo UI](http://kendoui.com) with 
+[Backbone.js](http://backbonejs.org)
+
+## About Kendo-Backbone
+
+Backbone provides a lot of great building blocks for creating 
+well structured JavaScript application. It doesn't provide everything
+you need, though. You, as a developer or designer, are still responsible
+for implementing a lot of the actual user experience and this often
+means using control suites like [Kendo UI](http://kendoui.com).
+
+Generally speaking, working with Backbone and Kendo UI's widgets is
+fairly straight-forward, as 
+[Derick Bailey has shown in this blog post](http://www.kendoui.com/blogs/teamblog/posts/12-11-26/backbone_and_kendo_ui_a_beautiful_combination.aspx).
+There are times, though, that additional integration points are 
+needed. This project aims to provide an open source set of extensions and sample
+projects, and gather up any relevant information to help
+
+## Source Code and Downloads
+
+Coming soon!
+
+## Documentation
+
+Coming soon!
+
+## Compatibility and Requirements
+
+Kendo-Backbone is designed to work with Kendo UI's web control
+suite at this point, with additional support for the Kendo UI framework
+that supports the web controls. Additional work to include integration
+with Kendo UI Mobile is also in the works.
+
+The Kendo-Backbone extension currently depend on the 
+following libraries:
+
+* [jQuery](http://www.jquery.com) v1.8.x
+* [Kendo UI](http://www.kendoui.com) v2013.1.226
+* [BackboneJS](http://backbonejs.org) v0.9.10
+* [UnderscoreJS](http://underscorejs.org) v1.4.4
+
+These extensions have not been tested against any other versions of 
+these libraries. You may find that versions other than these are 
+compatible, but we make no claims to support those version, 
+nor can we troubleshoot issues that arise when using those 
+versions.
+
+## How to Contribute
+
+If you would like to contribute to Kendo-Backbone's source code, 
+please read the 
+[guidelines for pull requests and contributions](CONTRIBUTING.md). 
+Following these guidelines will help make your contributions easier 
+to bring in to the next release.
+
+## Getting Help
+
+Use this section to list ways that a developer can obtain help or 
+support for this project, for instance, Stack Overflow. Make sure to 
+also leave the following section:
+
+As a part of Kendo UI Labs, Kendo-Backbone is intended to be a 
+community-run project, and not an official part of any 
+Kendo UI SKU (Web, DataViz, Mobile or Complete). As such, this 
+project is not a supported part of Kendo UI, and is not covered 
+under the support agreements for Kendo UI license holders. Please 
+do not create Kendo UI support requests for this project, as these 
+will be immediately closed and you'll be directed to post your 
+question on a community forum.
+
+## Release Notes
+
+For change logs and release notes, see the [changelog](changelog.md) file.
+
+## MIT License
+
+Distributed under [MIT License](LICENSE.md).
