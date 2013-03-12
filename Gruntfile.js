@@ -58,8 +58,8 @@ module.exports = function(grunt) {
 
     jasmine : {
       options : {
-        helpers : 'spec/helpers/*.js',
-        specs : 'spec/**/*.spec.js',
+        helpers : 'specs/helpers/*.js',
+        specs : 'specs/*.spec.js',
         vendor : [
           'vendor/jquery.js',
           'vendor/underscore.js',
@@ -102,11 +102,11 @@ module.exports = function(grunt) {
     },
     watch: {
       marionette : {
-        files : ['src/*.js', 'spec/**/*.js'],
+        files : ['src/*.js', 'specs/**/*.js'],
         tasks : ['jshint', 'jasmine:kendoBackbone']
       },
       server : {
-        files : ['src/*.js', 'spec/**/*.js'],
+        files : ['src/*.js', 'specs/**/*.js'],
         tasks : ['jasmine:kendoBackbone:build']
       }
     },

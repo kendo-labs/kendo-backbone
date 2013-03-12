@@ -5,5 +5,6 @@ node_modules
 *.swp
 *.sw0
 *.orig
+_SpecRunner.html
 
 vendor/kendo.all.min.js
