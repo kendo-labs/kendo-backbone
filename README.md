@@ -106,12 +106,12 @@ For change logs and release notes, see the [changelog](changelog.md) file.
 
 ## License Information
 
-Kendo UI Labs projects, and the Kendo-Backbone project, are all 
-released under a permissive [MIT License](LICENSE.md). 
-
+This project has been released under the 
+[Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html), 
+the text of which is included in the [LICENSE.md](LICENSE.md) file. 
 This license applies ONLY to the project-specific source of each 
-repository and does not extend to Kendo UI itself, or any other 
-3rd party libraries used in a repository. For licensing information 
-about Kendo UI, see the 
-[License Agreements](https://www.kendoui.com/purchase/license-agreement.aspx)
-page at [KendoUI.com](http://kendoui.com).
+repository and does not extend to Kendo UI itself, or any other 3rd 
+party libraries used in a repository. For licensing information about 
+Kendo UI, see the 
+[License Agreements page](https://www.kendoui.com/purchase/license-agreement.aspx) 
+at [KendoUI.com](http://www.kendoui.com).
