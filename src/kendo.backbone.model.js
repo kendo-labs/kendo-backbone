@@ -5,12 +5,12 @@
 (function () {
   var Model = kendo.data.Model;
 
-  function wrapBackboneModel(backboneModel, fields) {
+  function wrapBackboneModel(BackboneModel, fields) {
     return Model.define({
       fields: fields,
       init: function(model) {
-        if (!(model instanceof backboneModel)) {
-          model = new backboneModel(model);
+        if (!(model instanceof BackboneModel)) {
+          model = new BackboneModel(model);
         }
 
         Model.fn.init.call(this, model.toJSON());

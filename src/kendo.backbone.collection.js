@@ -20,7 +20,7 @@
 
         itemsToInsert = Array.prototype.slice.call(arguments, 2);
 
-        removedItems = kendo.data.ObservableArray.fn.splice.apply(this, arguments);
+        var removedItems = kendo.data.ObservableArray.fn.splice.apply(this, arguments);
 
         if (removedItems.length) {
           for (idx = 0, length = removedItems.length; idx < length; idx++) {

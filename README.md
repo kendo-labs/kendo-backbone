@@ -48,6 +48,35 @@ compatible, but we make no claims to support those version,
 nor can we troubleshoot issues that arise when using those 
 versions.
 
+### Running The Specs And Builds
+
+Kendo-Backbone relies on [NodeJS](http://nodejs.org) and [GruntJS](http://gruntjs.com) for it's build and test
+process. Once you have [downloaded NodeJS](http://nodejs.org/download/) and
+installed it, run the following commands from a command prompt or
+terminal window, in the project folder:
+
+1. `npm install`
+2. `npm install -g grunt-cli`
+3. `grunt`
+
+If the first two steps were successful, you should see the build
+output from the GruntJS build process.
+
+If you wish to run the specs in development mode for continuous
+testing, you can use one of the following commands:
+
+`grunt watch`
+
+or
+
+`grunt server`
+
+The `grunt watch` command will start a PhantomJS server and run
+all specs in the console window. The `grunt server` command will
+start an instance of the "grunt-contrib-connect" web server and
+host the specs at 
+[http://localhost:8888/\_SpecRunner.html](http://localhost:888/_SpecRunner.html).
+
 ## How to Contribute
 
 If you would like to contribute to Kendo-Backbone's source code, 
