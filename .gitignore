@@ -5,3 +5,5 @@ node_modules
 *.swp
 *.sw0
 *.orig
+
+vendor/kendo.all.min.js

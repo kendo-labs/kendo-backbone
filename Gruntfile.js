@@ -63,7 +63,8 @@ module.exports = function(grunt) {
         vendor : [
           'vendor/jquery.js',
           'vendor/underscore.js',
-          'vendor/backbone.js'
+          'vendor/backbone.js',
+          'vendor/kendo.all.min.js'
         ],
       },
       coverage : {
