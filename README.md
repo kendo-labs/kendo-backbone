@@ -104,6 +104,14 @@ question on a community forum.
 
 For change logs and release notes, see the [changelog](changelog.md) file.
 
-## MIT License
+## License Information
 
-Distributed under [MIT License](LICENSE.md).
+Kendo UI Labs projects, and the Kendo-Backbone project, are all 
+released under a permissive [MIT License](LICENSE.md). 
+
+This license applies ONLY to the project-specific source of each 
+repository and does not extend to Kendo UI itself, or any other 
+3rd party libraries used in a repository. For licensing information 
+about Kendo UI, see the 
+[License Agreements](https://www.kendoui.com/purchase/license-agreement.aspx)
+page at [KendoUI.com](http://kendoui.com).
