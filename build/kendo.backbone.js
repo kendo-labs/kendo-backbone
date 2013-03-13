@@ -3,7 +3,7 @@
 // v0.0.1
 //
 // Copyright (c)2013 Telerik. All Rights Reserved.
-// Distributed under MIT license
+// Distributed under Apache 2.0 license
 //
 // http://kendoui.com
 

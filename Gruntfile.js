@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         '// v<%= pkg.version %>\n' +
         '//\n' + 
         '// Copyright (c)<%= grunt.template.today("yyyy") %> Telerik. All Rights Reserved.\n' +
-        '// Distributed under MIT license\n' +
+        '// Distributed under Apache 2.0 license\n' +
         '//\n' + 
         '// http://kendoui.com\n' +
         '\n'
