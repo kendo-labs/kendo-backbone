@@ -24,9 +24,9 @@ module.exports = function(grunt) {
     },
 
     preprocess: {
-      build: {
+      web: {
         files: {
-          'build/kendo.backbone.js' : 'src/build/kendo.backbone.js'
+          'build/web/kendo.backbone.js' : 'src/web/build/kendo.backbone.js'
         }
       }
     },
@@ -35,9 +35,9 @@ module.exports = function(grunt) {
       options: {
         banner: "<%= meta.banner %>"
       },
-      build: {
-        src: 'build/kendo.backbone.js',
-        dest: 'build/kendo.backbone.js'
+      web: {
+        src: 'build/web/kendo.backbone.js',
+        dest: 'build/web/kendo.backbone.js'
       }
     },
 
@@ -45,11 +45,11 @@ module.exports = function(grunt) {
       options: {
         banner: "<%= meta.banner %>"
       },
-      build : {
-        src : 'build/kendo.backbone.js',
-        dest : 'build/kendo.backbone.min.js',
+      web : {
+        src : 'build/web/kendo.backbone.js',
+        dest : 'build/web/kendo.backbone.min.js',
         options : {
-          sourceMap : 'build/kendo.backbone.map',
+          sourceMap : 'build/web/kendo.backbone.map',
           sourceMappingURL : 'kendo.backbone.map',
           sourceMapPrefix : 2,
         }
@@ -67,8 +67,8 @@ module.exports = function(grunt) {
           'vendor/kendo.all.min.js'
         ],
       },
-      coverage : {
-        src : '<%= jasmine.kendoBackbone.src %>',
+      webCoverage : {
+        src : '<%= jasmine.web.src %>',
         options : {
           template : require('grunt-template-jasmine-istanbul'),
           templateOptions: {
@@ -77,10 +77,10 @@ module.exports = function(grunt) {
           }
         }
       },
-      kendoBackbone : {
+      web : {
         src : [
-          'src/build/kendo.backbone.js',
-          'src/*.js'
+          'src/build/web/kendo.backbone.js',
+          'src/web/*.js'
         ]
       }
     },
@@ -89,11 +89,11 @@ module.exports = function(grunt) {
       options: {
         jshintrc : '.jshintrc'
       },
-      marionette : [ 'src/*.js' ]
+      web : [ 'src/web/*.js' ]
     },
     plato: {
-      marionette : {
-        src : 'src/*.js',
+      web : {
+        src : 'src/**/*.js',
         dest : 'reports',
         options : {
           jshint : grunt.file.readJSON('.jshintrc')
@@ -101,13 +101,13 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      marionette : {
-        files : ['src/*.js', 'specs/**/*.js'],
-        tasks : ['jshint', 'jasmine:kendoBackbone']
+      web : {
+        files : ['src/web/*.js', 'specs/web/*.js'],
+        tasks : ['jshint', 'jasmine:web']
       },
-      server : {
-        files : ['src/*.js', 'specs/**/*.js'],
-        tasks : ['jasmine:kendoBackbone:build']
+      server: {
+        files : ['src/web/*js', 'specs/web/*.js'],
+        tasks : ['jasmine:web:build']
       }
     },
 
@@ -133,9 +133,9 @@ module.exports = function(grunt) {
 
   // register tasks
   
-  grunt.registerTask('default', ['jshint', 'jasmine:coverage', 'preprocess', 'concat', 'uglify']);
-  grunt.registerTask('test', ['jshint', 'jasmine:kendoBackbone']);
-  grunt.registerTask('dev', ['test', 'watch:kendoBackbone']);
-  grunt.registerTask('server', ['jasmine:kendoBackbone:build', 'connect:server', 'watch:server']);
+  grunt.registerTask('default', ['jshint', 'jasmine:webCoverage', 'preprocess', 'concat', 'uglify']);
+  grunt.registerTask('test', ['jshint', 'jasmine:web']);
+  grunt.registerTask('dev', ['test', 'watch:web']);
+  grunt.registerTask('server', ['jasmine:web:build', 'connect:server', 'watch:server']);
 
 };
