@@ -34,9 +34,9 @@ under their respective framework folder.
 
 **Web**
 
-  * Unminified (devevelopment version): [kendo.backbone.js](build/web/kendo.backbone.js)
-  * Minified (production version): [kendo.backbone.min.js](build/web/kendo.backbone.min.js)
-  * Source map (production debugging): [kendo.backbone.map](build/web/kendo.backbone.map)
+  * Unminified (devevelopment version): [kendo.backbone.js](https://raw.github.com/kendo-labs/kendo-backbone/master/build/web/kendo.backbone.js)
+  * Minified (production version): [kendo.backbone.min.js](https://raw.github.com/kendo-labs/kendo-backbone/master/build/web/kendo.backbone.min.js)
+  * Source map (production debugging): [kendo.backbone.map](https://raw.github.com/kendo-labs/kendo-backbone/master/build/web/kendo.backbone.map)
 
 ## Documentation
 
