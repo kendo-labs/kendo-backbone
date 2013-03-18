@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Code coverage report for web/kendo.backbone.model.js</title>
+    <title>Code coverage report for web/kendo.backbone.datasource.js</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="content-language" content="en-gb">
     
@@ -178,22 +178,22 @@
 </head>
 <body>
 <div class='header low'>
-    <h1>Code coverage report for <span class='entity'>web/kendo.backbone.model.js</span></h1>
+    <h1>Code coverage report for <span class='entity'>web/kendo.backbone.datasource.js</span></h1>
     <h2>
         
-        Statements: <span class='metric'>36.36% <small>(4 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class='metric'>25% <small>(6 / 24)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class='metric'>0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class='metric'>50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class='metric'>25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class='metric'>14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class='metric'>36.36% <small>(4 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class='metric'>26.09% <small>(6 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
     </h2>
-    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">web/</a> &#187; kendo.backbone.model.js</div>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">web/</a> &#187; kendo.backbone.datasource.js</div>
 </div>
 <div class='body'>
 <pre><table class="coverage">
@@ -225,62 +225,248 @@
 26
 27
 28
-29</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Kendo-Backbone Model
-// --------------------
-// 
-// Wrap a Backbone.Model in a kendo.data.Model
-(function () {
-  var Model = kendo.data.Model;
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Kendo UI: kendo.backbone.DataSource
+// -----------------------------------
+//
+// An early work to create a adapter that wraps around a 
+// `Backbone.Collection` as the underlying data store and
+// transport for a `kendo.data.DataSource`. This will provide basic
+// data-binding functionality for Kendo UI widgets and controls, such
+// as grids, list views, etc.
+//
+// Note that this is a largely untested experiment and hack. It is not 
+// intended for production use. It is intended to be a sample only, 
+// and is presented as-is with no implied stability and no guarantee 
+// to work properly with any of Kendo UI's control suite.
 &nbsp;
-<span class="fstat-no" title="function not covered" >  function wrapBackboneModel(BackboneModel, fields) {</span>
-<span class="cstat-no" title="statement not covered" >    return Model.define({</span>
-      fields: fields,
-      init: <span class="fstat-no" title="function not covered" >function(model) {</span>
-<span class="cstat-no" title="statement not covered" >        if (!(model instanceof BackboneModel)) {</span>
-<span class="cstat-no" title="statement not covered" >          model = new BackboneModel(model);</span>
-        }
+(function($, kendo, _) {
+  "use strict";
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        Model.fn.init.call(this, model.toJSON());</span>
-<span class="cstat-no" title="statement not covered" >        this.backbone = model;</span>
-      },
-      set: <span class="fstat-no" title="function not covered" >function(field, value) {</span>
-<span class="cstat-no" title="statement not covered" >        Model.fn.set.call(this, field, value);</span>
+  // add a backbone namespace if we need it
+  kendo.Backbone = kendo.Backbone || {};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        this.backbone.set(field, value);</span>
-      }
-    });
-  }
+  // BackboneTransport
+  // -----------------
+  //
+  // Define a transport that will move data between
+  // the kendo DataSource and the Backbone Collection
+  var BackboneTransport = <span class="fstat-no" title="function not covered" >function(collection){</span>
+<span class="cstat-no" title="statement not covered" >    this._collection = collection;</span>
+  };
+  
+  // add basic CRUD operations to the transport
+  _.extend(BackboneTransport.prototype, {
 &nbsp;
-  kendo.backboneModel = wrapBackboneModel;
-})();
+    create: <span class="fstat-no" title="function not covered" >function(options) {</span>
+      // increment the id
+<span class="cstat-no" title="statement not covered" >      if (!this._currentId) { <span class="cstat-no" title="statement not covered" >this._currentId = this._collection.length; </span>}</span>
+<span class="cstat-no" title="statement not covered" >      this._currentId += 1;</span>
+&nbsp;
+      // set the id on the data provided
+<span class="cstat-no" title="statement not covered" >      var data = options.data;</span>
+<span class="cstat-no" title="statement not covered" >      data.id = this._currentId;</span>
+&nbsp;
+      // create the model in the collection
+<span class="cstat-no" title="statement not covered" >      this._collection.add(data);</span>
+&nbsp;
+      // tell the DataSource we're done
+<span class="cstat-no" title="statement not covered" >      options.success(data);</span>
+    },
+&nbsp;
+    read: <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >      options.success(this._collection.toJSON());</span>
+    },
+&nbsp;
+    update: <span class="fstat-no" title="function not covered" >function(options) {</span>
+      // find the model
+<span class="cstat-no" title="statement not covered" >      var model = this._collection.get(options.data.id);</span>
+&nbsp;
+      // update the model
+<span class="cstat-no" title="statement not covered" >      model.set(options.data);</span>
+&nbsp;
+      // tell the DataSource we're done
+<span class="cstat-no" title="statement not covered" >      options.success(options.data);</span>
+    },
+&nbsp;
+    destroy: <span class="fstat-no" title="function not covered" >function(options) {</span>
+      // find the model
+<span class="cstat-no" title="statement not covered" >      var model = this._collection.get(options.data.id);</span>
+&nbsp;
+      // remove the model
+<span class="cstat-no" title="statement not covered" >      this._collection.remove(model);</span>
+&nbsp;
+      // tell the DataSource we're done
+<span class="cstat-no" title="statement not covered" >      options.success(options.data);</span>
+    }
+  });
+&nbsp;
+  // kendo.backbone.DataSource
+  // -----------------------------------
+&nbsp;
+  // Define the custom data source that uses a Backbone.Collection
+  // as the underlying data store / transport
+  kendo.Backbone.DataSource = kendo.data.DataSource.extend({
+    init: <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >      var bbtrans = new BackboneTransport(options.collection);</span>
+<span class="cstat-no" title="statement not covered" >      _.defaults(options, {transport: bbtrans, autoSync: true});</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      kendo.data.DataSource.fn.init.call(this, options);</span>
+    }
+  }); 
+&nbsp;
+})($, kendo, _);
 &nbsp;</pre></td></tr>
 </table></pre>
 
