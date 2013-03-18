@@ -105,9 +105,11 @@ to bring in to the next release.
 
 ## Getting Help
 
-Use this section to list ways that a developer can obtain help or 
-support for this project, for instance, Stack Overflow. Make sure to 
-also leave the following section:
+The best way to get help is either by open [issues](issues) on the project
+here at github, or by asking questions on
+[StackOverflow](http://stackoverflow.com). Be sure to tag your SO
+questions with [kendo-ui](http://stackoverflow.com/questions/tagged/kendo-ui) 
+and [backbone.js](http://stackoverflow.com/questions/tagged/backbone.js) so that we'll see them!
 
 As a part of Kendo UI Labs, Kendo-Backbone is intended to be a 
 community-run project, and not an official part of any 
