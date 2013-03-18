@@ -21,11 +21,29 @@ projects, and gather up any relevant information to help
 
 ## Source Code and Downloads
 
-Coming soon!
+All of source code can be found in the [src](src) folder of the
+repository, with sub-folders for each area of Kendo UI that has
+some integration with Backbone.
+
+### Downloads
+
+Downloads are separated in to distinct files based on the specific
+framework that the file targets: Web, Mobile and DataViz. Each of these
+files can be found in the [build](build) folder of the respository,
+under their respective framework folder.
+
+**Web**
+
+  * Unminified (devevelopment version): [kendo.backbone.js](build/web/kendo.backbone.js)
+  * Minified (production version): [kendo.backbone.min.js](build/web/kendo.backbone.min.js)
+  * Source map (production debugging): [kendo.backbone.map](build/web/kendo.backbone.map)
 
 ## Documentation
 
 Coming soon!
+
+I wrote a blog post on [wrapping a Backbone.Collection in a
+kendo.data.DataSource](http://www.kendoui.com/blogs/teamblog/posts/13-02-07/wrapping_a_backbone_collection_in_a_kendo_data_datasource.aspx).
 
 ## Compatibility and Requirements
 
