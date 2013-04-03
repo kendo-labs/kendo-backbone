@@ -116,17 +116,9 @@
   _.extend(BackboneTransport.prototype, {
 
     create: function(options) {
-      // increment the id
-      if (!this._currentId) { this._currentId = this._collection.length; }
-      this._currentId += 1;
-
-      // set the id on the data provided
       var data = options.data;
-      data.id = this._currentId;
-
       // create the model in the collection
       this._collection.add(data);
-
       // tell the DataSource we're done
       options.success(data);
     },
@@ -165,12 +157,47 @@
   // as the underlying data store / transport
   kendo.Backbone.DataSource = kendo.data.DataSource.extend({
     init: function(options) {
-      var bbtrans = new BackboneTransport(options.collection);
-      _.defaults(options, {transport: bbtrans, autoSync: true});
+      var collection = options.collection;
 
-      kendo.data.DataSource.fn.init.call(this, options);
+      // configure the Backbone transport 
+      var bbtrans = new BackboneTransport(collection);
+      _.defaults(options, { transport: bbtrans, autoSync: true });
+
+      // Setup default schema, if none is provided
+      options = setupDefaultSchema(options, collection);
+
+      // initialize the datasource with the new configuration
+      kendo.data.DataSource.prototype.init.call(this, options);
     }
   }); 
+
+  // Setup default schema, if none is provided
+  function setupDefaultSchema(target, collection){
+    // build the schema.model, one step at a time, 
+    // to ensure it is not replaced, and ensure it is
+    // properly set up in case parts of a schema or model
+    // are provided by the specific application needs
+    _.defaults(target, { schema: {} });
+    _.defaults(target.schema, { model: {} });
+
+    // set an id field based on the collection's model.idAttribute,
+    // or use the default "id" if none found
+    _.defaults(target.schema.model, {
+      id: getPrototypeOf(collection).model.prototype.idAttribute || "id"
+    });
+
+    return target;
+  }
+
+  // shim for Object.getPrototypeOf
+  // based on http://ejohn.org/blog/objectgetprototypeof/
+  function getPrototypeOf(target){
+    if (Object.getPrototypeOf){
+      return Object.getPrototypeOf(target);
+    } else {
+      return target.__proto__ || target.constructor.prototype;
+    }
+  }
 
 })($, kendo, _);
 

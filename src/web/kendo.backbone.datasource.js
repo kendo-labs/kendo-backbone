@@ -98,10 +98,20 @@
     // set an id field based on the collection's model.idAttribute,
     // or use the default "id" if none found
     _.defaults(target.schema.model, {
-      id: collection.__proto__.model.prototype.idAttribute || "id"
+      id: getPrototypeOf(collection).model.prototype.idAttribute || "id"
     });
 
     return target;
+  }
+
+  // shim for Object.getPrototypeOf
+  // based on http://ejohn.org/blog/objectgetprototypeof/
+  function getPrototypeOf(target){
+    if (Object.getPrototypeOf){
+      return Object.getPrototypeOf(target);
+    } else {
+      return target.__proto__ || target.constructor.prototype;
+    }
   }
 
 })($, kendo, _);
