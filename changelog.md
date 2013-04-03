@@ -1,3 +1,10 @@
+## v0.0.2 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.1...v0.0.2)
+
+* The kendo.Backbone.DataSource will now infer `schema.model.id` from the
+  Backbone.Collection instance, is no `schema` is configured
+
+* Started writing unit tests for the kendo.Backbone.DataSource
+
 ## v0.0.1
 
 * Initial release

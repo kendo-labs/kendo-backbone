@@ -1,6 +1,6 @@
 // Kendo-Backbone
 // --------------
-// v0.0.1
+// v0.0.2
 //
 // Copyright (c)2013 Telerik. All Rights Reserved.
 // Distributed under Apache 2.0 license
