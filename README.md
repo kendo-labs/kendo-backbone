@@ -40,9 +40,22 @@ under their respective framework folder.
 
 ## Documentation
 
-Coming soon!
+Documentation is generally located in the [docs](docs) folder, and is
+sub-divided by the Kendo UI suite, specifically. 
 
-I wrote a blog post on [wrapping a Backbone.Collection in a
+**Web**
+
+  * [kendo.Backbone.DataSource](docs/web/kendo.backbone.datasource.md) - use a
+    Backbone.Collection instance as a DataSource for any Kendo UI web control
+
+
+### Blog Posts And Other Discussions
+
+For examples on how to integrate Kendo UI's
+Web suite of widgets in to a Backbone application, see 
+[this blog post on KendoUI + Backbone](http://www.kendoui.com/blogs/teamblog/posts/12-11-26/backbone_and_kendo_ui_a_beautiful_combination.aspx).
+
+There's also a blog post on [wrapping a Backbone.Collection in a
 kendo.data.DataSource](http://www.kendoui.com/blogs/teamblog/posts/13-02-07/wrapping_a_backbone_collection_in_a_kendo_data_datasource.aspx).
 
 ## Compatibility and Requirements
