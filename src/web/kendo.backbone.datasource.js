@@ -80,7 +80,6 @@
 
       // Setup default schema, if none is provided
       options = setupDefaultSchema(options, collection);
-      console.log(options);
 
       // initialize the datasource with the new configuration
       kendo.data.DataSource.prototype.init.call(this, options);
