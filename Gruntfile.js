@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     jasmine : {
       options : {
         helpers : 'specs/helpers/*.js',
-        specs : 'specs/*.spec.js',
+        specs : 'specs/**/*.spec.js',
         vendor : [
           'vendor/jquery.js',
           'vendor/underscore.js',
@@ -106,7 +106,7 @@ module.exports = function(grunt) {
         tasks : ['jshint', 'jasmine:web']
       },
       server: {
-        files : ['src/web/*js', 'specs/web/*.js'],
+        files : ['src/web/*.js', 'specs/web/*.js'],
         tasks : ['jasmine:web:build']
       }
     },
