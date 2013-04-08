@@ -1,0 +1,36 @@
+doctype 5
+html
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=US-ASCII")
+
+    title Kendo UI: Kendo-Backbone Integration Demos
+
+    link(rel="stylesheet", type="text/css", href="/css/kendo.common.min.css")
+    link(rel="stylesheet", type="text/css", href="/css/kendo.default.min.css")
+    link(rel="stylesheet", type="text/css", href="/css/kendo.bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="/css/style.css")
+
+    script(src="/js/jquery.min.js")
+    script(src="/js/kendo.all.min.js")
+  body
+    
+    .navbar.navbar-static-top
+      .navbar-inner
+        .container
+
+          span.brand
+            a(href="/")
+              img(src="/images/kendo-ui-logo.png")
+
+          ul.nav(style="padding-top: 20px;")
+            li
+              a(href="/demos/grid-datasource") Grid DataSource
+
+    .container
+      .row
+        .span1 &nbsp;
+        .span10
+          block content
+        .span1 &nbsp;
+
+

@@ -1,0 +1,29 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'run-script', 'demos' ]
+2 info using npm@1.1.61
+3 info using node@v0.8.9
+4 verbose read json /Users/derickbailey/dev/projects/telerik/kendo-backbone/package.json
+5 verbose run-script [ 'predemos', 'demos', 'postdemos' ]
+6 info predemos kendo-backbone@0.0.2
+7 info demos kendo-backbone@0.0.2
+8 verbose unsafe-perm in lifecycle true
+9 silly exec sh "-c" "node app.js"
+10 silly sh,-c,node app.js,/Users/derickbailey/dev/projects/telerik/kendo-backbone spawning
+11 info kendo-backbone@0.0.2 Failed to exec demos script
+12 error kendo-backbone@0.0.2 demos: `node app.js`
+12 error `sh "-c" "node app.js"` failed with 1
+13 error Failed at the kendo-backbone@0.0.2 demos script.
+13 error This is most likely a problem with the kendo-backbone package,
+13 error not with npm itself.
+13 error Tell the author that this fails on your system:
+13 error     node app.js
+13 error You can get their info via:
+13 error     npm owner ls kendo-backbone
+13 error There is likely additional logging output above.
+14 error System Darwin 12.3.0
+15 error command "node" "/usr/local/bin/npm" "run-script" "demos"
+16 error cwd /Users/derickbailey/dev/projects/telerik/kendo-backbone
+17 error node -v v0.8.9
+18 error npm -v 1.1.61
+19 error code ELIFECYCLE
+20 verbose exit [ 1, true ]
