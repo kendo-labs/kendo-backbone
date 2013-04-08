@@ -5,6 +5,18 @@ block javascripts
   script(src="/js/grid-datasource.js")
 
 block content
-  h2 Kendo UI Grid + kendo.Backbone.DataSource
+  header
+    h2 Meme Database
+    h4 Kendo UI Grid + kendo.Backbone.DataSource
+    p 
+      | Store your favorite memes and reaction gifs! This demo uses a
+      | standard Kendo UI Web Grid control, along with the 
+      a(href="https://github.com/kendo-labs/kendo-backbone") kendo.Backbone.DataSource 
+      | as the backing data source. It showcases the full CRUD
+      | capabilities of the custom DataSource.
+    p
+      b Note: 
+      | this does not yet support paging, sorting or filtering.
+      | These are features that will be facilitated in later releases.
 
   .grid

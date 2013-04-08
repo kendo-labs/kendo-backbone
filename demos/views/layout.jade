@@ -8,6 +8,7 @@ html
     link(rel="stylesheet", type="text/css", href="/css/kendo.common.min.css")
     link(rel="stylesheet", type="text/css", href="/css/kendo.default.min.css")
     link(rel="stylesheet", type="text/css", href="/css/kendo.bootstrap.min.css")
+    link(rel="stylesheet", type="text/css", href="/css/bootstrap.css")
     link(rel="stylesheet", type="text/css", href="/css/style.css")
 
     script(src="/js/vendor/jquery.js")
@@ -29,7 +30,7 @@ html
 
           ul.nav(style="padding-top: 20px;")
             li
-              a(href="/demos/grid-datasource") Grid DataSource
+              a(href="/demos/grid-datasource") Grid + Backbone.DataSource
 
     .container
       .row
@@ -37,5 +38,12 @@ html
         .span10
           block content
         .span1 &nbsp;
-
+      .row
+        .span12 &nbsp;
+    footer.container
+      .row
+        .span1 &nbsp;
+        .span10
+          a.pull-right(href="http://labs.kendoui.com") Copyright &copy;#{new Date().getFullYear()} Telerik. All Rights Reserved.
+        .span1 &nbsp;
 
