@@ -8,6 +8,9 @@ exports.index = function(req, res){
 };
 
 exports.demoPage = function(req, res){
-  console.log(req);
   res.render('demos/' + req.params.demoName);
+};
+
+exports.vendorJS = function(req, res){
+  res.sendfile("vendor/" + req.params.fileName);
 };
