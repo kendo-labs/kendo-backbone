@@ -14,3 +14,7 @@ exports.demoPage = function(req, res){
 exports.vendorJS = function(req, res){
   res.sendfile("vendor/" + req.params.fileName);
 };
+
+exports.buildJS = function(req, res){
+  res.sendfile("build/" + req.params.folderName + "/" + req.params.fileName);
+};
