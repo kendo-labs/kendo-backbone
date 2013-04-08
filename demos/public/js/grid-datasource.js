@@ -7,7 +7,8 @@ $(function(){
     { id: 4, url: "/images/memes/JavaScriptEval.jpg" },
     { id: 5, url: "/images/memes/mind_blown.gif" },
     { id: 6, url: "/images/memes/picard-facepalm.jpg" },
-    { id: 7, url: "/images/memes/thingsThat.png" }
+    { id: 7, url: "/images/memes/thingsThat.png" },
+    { id: 8, url: "/images/memes/ChuckNorrisThumbsUp.gif" }
   ]);
 
   $(".grid").kendoGrid({
