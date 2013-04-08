@@ -48,6 +48,18 @@ sub-divided by the Kendo UI suite, specifically.
   * [kendo.Backbone.DataSource](docs/web/kendo.backbone.datasource.md) - use a
     Backbone.Collection instance as a DataSource for any Kendo UI web control
 
+## Demos
+
+The Kendo-Backbone project includes a few demo applications directly
+in the repo. 
+
+The demo projects are located in the [demos](demos) folder.
+
+To run the demos, you need to install [NodeJS](http://nodejs.org)
+and install the needed components through `npm install` in a command
+/ terminal window. Once you have installed all the needed components, 
+run `node app.js` from the same command / terminal window. Then open 
+your browser to [http://localhost:3000](http://localhost:3000).
 
 ### Blog Posts And Other Discussions
 
