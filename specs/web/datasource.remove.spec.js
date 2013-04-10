@@ -8,7 +8,8 @@ describe("Kendo UI Backbone DataSource - remove", function(){
       collection = new Backbone.Collection([model]);
 
       ds = new kendo.Backbone.DataSource({
-        collection: collection
+        collection: collection,
+        autoSync: true
       });
       ds.read();
 

@@ -76,7 +76,7 @@
 
       // configure the Backbone transport 
       var bbtrans = new BackboneTransport(collection);
-      _.defaults(options, { transport: bbtrans, autoSync: true });
+      _.defaults(options, { transport: bbtrans });
 
       // Setup default schema, if none is provided
       options = setupDefaultSchema(options, collection);

@@ -1,3 +1,8 @@
+## v0.0.3 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.2...v0.0.3)
+
+* kendo.Backbone.DataSource
+  * No longer defaults `autoSync: true`. Now uses the normal default of `autoSync: false`
+
 ## v0.0.2 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.1...v0.0.2)
 
 * The kendo.Backbone.DataSource will now infer `schema.model.id` from the
