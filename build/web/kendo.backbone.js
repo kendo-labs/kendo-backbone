@@ -1,6 +1,6 @@
 // Kendo-Backbone
 // --------------
-// v0.0.2
+// v0.0.3
 //
 // Copyright (c)2013 Telerik. All Rights Reserved.
 // Distributed under Apache 2.0 license
@@ -161,7 +161,7 @@
 
       // configure the Backbone transport 
       var bbtrans = new BackboneTransport(collection);
-      _.defaults(options, { transport: bbtrans, autoSync: true });
+      _.defaults(options, { transport: bbtrans });
 
       // Setup default schema, if none is provided
       options = setupDefaultSchema(options, collection);
