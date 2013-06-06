@@ -1,14 +1,14 @@
 $(function(){
 
   var memeCollection = new Backbone.Collection([
-    { id: 1, name: "spring cleaning", url: "/images/memes/28067008.jpg" },
-    { id: 2, name: "like a boss", url: "/images/memes/CatLikeaBoss.jpg" },
-    { id: 3, name: "infinite high five", url: "/images/memes/high-fives.gif" },
-    { id: 4, name: "eval is evil", url: "/images/memes/JavaScriptEval.jpg" },
-    { id: 5, name: "mind blown", url: "/images/memes/mind_blown.gif" },
-    { id: 6, name: "facepalm", url: "/images/memes/picard-facepalm.jpg" },
-    { id: 7, name: "things that make you go, 'hmmmmmmm'", url: "/images/memes/thingsThat.png" },
-    { id: 8, name: "epic thumbs up is epic", url: "/images/memes/ChuckNorrisThumbsUp.gif" }
+    { id: 1, name: "spring cleaning", url: "/images/memes/28067008.jpg", tags: ["foo", "bar", "baz"] },
+    { id: 2, name: "like a boss", url: "/images/memes/CatLikeaBoss.jpg", tags: ["baz", "quux", "widget"] },
+    { id: 3, name: "infinite high five", url: "/images/memes/high-fives.gif", tags: ["wombat", "wambo", "bamboo"] },
+    { id: 4, name: "eval is evil", url: "/images/memes/JavaScriptEval.jpg", tags: [] },
+    { id: 5, name: "mind blown", url: "/images/memes/mind_blown.gif", tags: [] },
+    { id: 6, name: "facepalm", url: "/images/memes/picard-facepalm.jpg", tags: [] },
+    { id: 7, name: "things that make you go, 'hmmmmmmm'", url: "/images/memes/thingsThat.png", tags: [] },
+    { id: 8, name: "epic thumbs up is epic", url: "/images/memes/ChuckNorrisThumbsUp.gif", tags: [] }
   ]);
 
   memeCollection.on("add", function(model){
@@ -26,8 +26,7 @@ $(function(){
             preview: "string"
           }
         }
-      },
-      autoSync: false
+      }
     }),
 
     columns: [
@@ -44,6 +43,12 @@ $(function(){
       {
         title: "URL",
         field: "url"
+      },
+      {
+        title: "Tags",
+        template: function(data){
+          return data.tags.join(", ");
+        }
       },
       { command: ["edit", "destroy"] }
     ],
