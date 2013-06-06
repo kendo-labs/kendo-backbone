@@ -32,8 +32,17 @@
 
     create: function(options) {
       var data = options.data;
-      // create the model in the collection
-      this._collection.add(data);
+      var exists = false;
+
+      if (data.thatThing){
+        exists = true;
+      }
+
+      if (!exists){
+        // create the model in the collection
+        this._collection.add(data);
+      }
+
       // tell the DataSource we're done
       options.success(data);
     },
@@ -78,13 +87,22 @@
       var bbtrans = new BackboneTransport(collection);
       _.defaults(options, { transport: bbtrans });
 
-      // Setup default schema, if none is provided
-      options = setupDefaultSchema(options, collection);
+      // configure events for two-way binding
+      bindDataSourceToCollectionEvents(this, collection);
 
       // initialize the datasource with the new configuration
+      options = setupDefaultSchema(options, collection);
       kendo.data.DataSource.prototype.init.call(this, options);
     }
   }); 
+
+  // bind to the collection events to update the datasource
+  function bindDataSourceToCollectionEvents(ds, collection){
+    collection.on("add", function(model){
+      var data = model.toString();
+      ds.add(data);
+    });
+  }
 
   // Setup default schema, if none is provided
   function setupDefaultSchema(target, collection){
