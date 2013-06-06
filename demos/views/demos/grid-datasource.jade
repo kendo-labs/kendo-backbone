@@ -2,6 +2,7 @@ extends ../layout
 
 block javascripts
   script(src="/js/build/web/kendo.backbone.js")
+  script(src="/js/grid-datasource-backbone.js")
   script(src="/js/grid-datasource.js")
 
 block content
@@ -18,5 +19,21 @@ block content
       b Note: 
       | this does not yet support paging, sorting or filtering.
       | These are features that will be facilitated in later releases.
+
+  fieldset
+    legend Backbone Form
+      form.backbone-form
+        .input
+          label Name 
+            input(name="name")
+        .input
+          label URL 
+            input(name="url")
+        .input
+          label Tags 
+            input(name="tags")
+        .input
+          button.save Add
+          button Cancel
 
   .grid

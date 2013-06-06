@@ -15,6 +15,8 @@ $(function(){
     console.log("added a model:", model.get("name"), model.get("url"));
   });
 
+  GridBackboneApp.init(memeCollection);
+
   $(".grid").kendoGrid({
     dataSource: new kendo.Backbone.DataSource({
       collection: memeCollection,
