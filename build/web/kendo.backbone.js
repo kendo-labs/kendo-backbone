@@ -10,6 +10,43 @@
 (function(global, kendo){
   "use strict";
 
+  // add a backbone namespace from which
+  // to hang everything
+  kendo.Backbone = kendo.Backbone || {};
+
+// kendo.backbone.factory
+// ----------------------
+//
+// Internal object to store / retrieve
+// types. A very simple alternative to
+// complex solutions like requirejs.
+// 
+// This object should not be used
+// outside of kendo.backbone's internal
+// uses.
+kendo.Backbone.factory = (function(){
+  "use strict";
+
+  // from http://www.140byt.es/keywords/new
+  function create(a,b,c){return(create[c=b?-~b.length:1]||(create[c]=Function("a,b,c","return new a("+Array(c).join(",b[c++]").slice(1)+")")))(a,b,0)}
+
+  var factory = {
+    types: {},
+
+    register: function(name, type){
+      this.types[name] = type;
+    },
+
+    build: function(name, args){
+      var args = Array.prototype.splice.call(arguments, 1);
+      return create(this.types[name], args);
+    }
+  };
+
+  return factory;
+})();
+
+
 // Kendo-Backbone Model
 // --------------------
 // 
@@ -83,37 +120,24 @@
   kendo.backboneCollection = wrapBackboneCollection;
 })();
 
-// Kendo UI: kendo.backbone.DataSource
-// -----------------------------------
-//
-// An early work to create a adapter that wraps around a 
-// `Backbone.Collection` as the underlying data store and
-// transport for a `kendo.data.DataSource`. This will provide basic
-// data-binding functionality for Kendo UI widgets and controls, such
-// as grids, list views, etc.
-//
-// Note that this is a largely untested experiment and hack. It is not 
-// intended for production use. It is intended to be a sample only, 
-// and is presented as-is with no implied stability and no guarantee 
-// to work properly with any of Kendo UI's control suite.
 
-(function($, kendo, _) {
+// BackboneTransport
+// -----------------
+//
+// Define a transport that will move data between
+// the kendo DataSource and the Backbone Collection
+
+kendo.Backbone.factory.register("BackboneTransport", (function(){
   "use strict";
 
-  // add a backbone namespace if we need it
-  kendo.Backbone = kendo.Backbone || {};
-
-  // BackboneTransport
-  // -----------------
-  //
-  // Define a transport that will move data between
-  // the kendo DataSource and the Backbone Collection
-  var BackboneTransport = function(colWrap){
+  // Constructor Function
+  function Transport(colWrap){
     this.colWrap = colWrap;
   };
   
+  // Instance methods. 
   // add basic CRUD operations to the transport
-  _.extend(BackboneTransport.prototype, {
+  _.extend(Transport.prototype, {
 
     create: function(options) {
       var data = options.data;
@@ -152,20 +176,27 @@
     }
   });
 
+  return Transport;
+})());
+
+kendo.Backbone.factory.register("CollectionWrapper", (function(){
+  "use strict";
+
   // Backbone.Collection Wrapper
   // ---------------------------
-  //
   // Wrap a Collection with DataSource configuration so that
   // the two-way integration can occur without infinite loops
 
-  var CollectionWrapper = function(collection, dataSource){
+  // Constructor function
+  function Wrapper(collection, dataSource){
     this.collection = collection;
     this.dataSource = dataSource;
 
     this.listenTo(this.collection, "add", this._addToDataSource);
   };
 
-  _.extend(CollectionWrapper.prototype, Backbone.Events, {
+  // Instance methods
+  _.extend(Wrapper.prototype, Backbone.Events, {
     add: function(){
       var args = Array.prototype.slice.call(arguments);
 
@@ -190,18 +221,39 @@
     }
   });
 
-  // kendo.backbone.DataSource
+  return Wrapper;
+})());
+
+// Kendo UI: kendo.backbone.DataSource
+// -----------------------------------
+//
+// An adapter that wraps around a 
+// `Backbone.Collection` as the underlying data store and
+// transport for a `kendo.data.DataSource`. This will provide basic
+// data-binding functionality for Kendo UI widgets and controls, such
+// as grids, list views, etc.
+//
+// Note that this is a largely untested experiment and hack. It is not 
+// intended for production use. It is intended to be a sample only, 
+// and is presented as-is with no implied stability and no guarantee 
+// to work properly with any of Kendo UI's control suite.
+
+kendo.Backbone.DataSource = (function($, kendo, _) {
+  "use strict";
+
+  // kendo.Backbone.DataSource
   // -----------------------------------
 
   // Define the custom data source that uses a Backbone.Collection
   // as the underlying data store / transport
-  kendo.Backbone.DataSource = kendo.data.DataSource.extend({
+  var DataSource = kendo.data.DataSource.extend({
     init: function(options) {
+      // build a collection wrapper for the backbone.collection
       var collection = options.collection;
-      var colWrap = new CollectionWrapper(collection, this);
+      var colWrap = kendo.Backbone.factory.build("CollectionWrapper", collection, this);
 
-      // configure the Backbone transport 
-      var bbtrans = new BackboneTransport(colWrap);
+      // configure the Backbone transport with the collection
+      var bbtrans = kendo.Backbone.factory.build("BackboneTransport", colWrap);
       _.defaults(options, { transport: bbtrans });
 
       // initialize the datasource with the new configuration
@@ -238,6 +290,7 @@
     }
   }
 
+  return DataSource;
 })($, kendo, _);
 
  
