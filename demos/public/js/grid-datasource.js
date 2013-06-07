@@ -11,10 +11,6 @@ $(function(){
     { id: 8, name: "epic thumbs up is epic", url: "/images/memes/ChuckNorrisThumbsUp.gif", tags: [] }
   ]);
 
-  memeCollection.on("add", function(model){
-    console.log("added a model:", model.get("name"), model.get("url"));
-  });
-
   GridBackboneApp.init(memeCollection);
 
   $(".grid").kendoGrid({
@@ -56,6 +52,13 @@ $(function(){
     ],
     toolbar: ["create"],
     editable: "popup"
+  });
+
+  var grid = $(".grid").data("kendoGrid");
+
+  memeCollection.on("add", function(model){
+    console.log("added a model:", model.get("name"), model.get("url"));
+    grid.refresh();
   });
 
   function showImagePreview(container, options){
