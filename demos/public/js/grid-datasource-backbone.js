@@ -23,7 +23,7 @@
         collection: this.collection
       });
 
-      gridView.on("itemview:model:destroy", function(model){
+      gridView.on("itemview:model:destroy", function(view, model){
         this.collection.remove(model);
       }, this);
 
