@@ -79,8 +79,9 @@ module.exports = function(grunt) {
       },
       web : {
         src : [
-          'src/build/web/kendo.backbone.js',
-          'src/web/*.js'
+          'src/web/build/kendo.backbone.js',
+          'src/factory/factory.js',
+          'src/web/**/*.js'
         ]
       }
     },
