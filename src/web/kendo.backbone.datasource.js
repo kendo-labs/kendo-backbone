@@ -75,12 +75,16 @@
 
   var CollectionWrapper = function(collection, dataSource){
     this.collection = collection;
-    this._bindForDataSource(dataSource);
+    this.dataSource = dataSource;
+
+    this.listenTo(this.collection, "add", this._addToDataSource);
   };
 
   _.extend(CollectionWrapper.prototype, Backbone.Events, {
     add: function(){
       var args = Array.prototype.slice.call(arguments);
+
+      // gate the add that came through the collection directly
       if (!this.addFromCol){
         this.addFromDS = true;
         this.collection.add.apply(this.collection, args);
@@ -88,16 +92,16 @@
       }
     },
 
-    _bindForDataSource: function(dataSource){
-      // bind to the collection events to update the datasource
-      this.listenTo(this.collection, "add", function(model){
-        if (!this.addFromDS){
-          this.addFromCol = true;
-          var data = model.toJSON();
-          dataSource.add(data);
-          this.addFromCol = false;
-        }
-      });
+    _addToDataSource: function(model){
+      // gate the add that came through the datasource directly
+      if (!this.addFromDS){
+        this.addFromCol = true;
+
+        var data = model.toJSON();
+        this.dataSource.add(data);
+
+        this.addFromCol = false;
+      }
     }
   });
 
