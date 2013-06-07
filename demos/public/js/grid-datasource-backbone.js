@@ -24,9 +24,8 @@
       });
 
       gridView.on("itemview:model:destroy", function(model){
-        console.log("DESTROY", model);
         this.collection.remove(model);
-      });
+      }, this);
 
       gridView.render();
       $(".backbone-grid").html(gridView.$el);
