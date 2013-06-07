@@ -69,32 +69,37 @@
 
   // Backbone.Collection Wrapper
   // ---------------------------
-  function wrapCollection(collection, dataSource){
-    var wrapper = {
-      collection: collection,
+  //
+  // Wrap a Collection with DataSource configuration so that
+  // the two-way integration can occur without infinite loops
 
-      add: function(){
-        var args = Array.prototype.slice.call(arguments);
-        if (!this.addFromCol){
-          this.addFromDS = true;
-          this.collection.add.apply(this.collection, args);
-          this.addFromDS = false;
+  var CollectionWrapper = function(collection, dataSource){
+    this.collection = collection;
+    this._bindForDataSource(dataSource);
+  };
+
+  _.extend(CollectionWrapper.prototype, Backbone.Events, {
+    add: function(){
+      var args = Array.prototype.slice.call(arguments);
+      if (!this.addFromCol){
+        this.addFromDS = true;
+        this.collection.add.apply(this.collection, args);
+        this.addFromDS = false;
+      }
+    },
+
+    _bindForDataSource: function(dataSource){
+      // bind to the collection events to update the datasource
+      this.listenTo(this.collection, "add", function(model){
+        if (!this.addFromDS){
+          this.addFromCol = true;
+          var data = model.toJSON();
+          dataSource.add(data);
+          this.addFromCol = false;
         }
-      }
-    };
-
-    // bind to the collection events to update the datasource
-    collection.on("add", function(model){
-      if (!wrapper.addFromDS){
-        wrapper.addFromCol = true;
-        var data = model.toJSON();
-        dataSource.add(data);
-        wrapper.addFromCol = false;
-      }
-    });
-
-    return wrapper;
-  }
+      });
+    }
+  });
 
   // kendo.backbone.DataSource
   // -----------------------------------
@@ -104,7 +109,7 @@
   kendo.Backbone.DataSource = kendo.data.DataSource.extend({
     init: function(options) {
       var collection = options.collection;
-      var colWrap = wrapCollection(collection, this);
+      var colWrap = new CollectionWrapper(collection, this);
 
       // configure the Backbone transport 
       var bbtrans = new BackboneTransport(colWrap);
