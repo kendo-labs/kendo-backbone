@@ -12,6 +12,7 @@ kendo.Backbone.factory.register("CollectionWrapper", (function(){
     this.dataSource = dataSource;
 
     this.listenTo(this.collection, "add", this._addToDataSource);
+    this.listenTo(this.collection, "remove", this._removeFromDataSource);
   };
 
   // Instance methods
@@ -36,6 +37,14 @@ kendo.Backbone.factory.register("CollectionWrapper", (function(){
         this.dataSource.add(data);
 
         this.addFromCol = false;
+      }
+    },
+
+    _removeFromDataSource: function(model){
+      var dsModel = this.dataSource.get(model.id);
+
+      if (dsModel){
+        this.dataSource.remove(dsModel);
       }
     }
   });
