@@ -13,20 +13,28 @@ $(function(){
 
   GridBackboneApp.init(memeCollection);
 
-  $(".grid").kendoGrid({
-    dataSource: new kendo.Backbone.DataSource({
-      collection: memeCollection,
-      schema: {
-        model: {
-          fields: {
-            url: "string",
-            name: "string",
-            preview: "string"
-          }
+  memeCollection.on("add", function(model){
+    console.log("added a model:", model.get("name"), model.get("url"));
+  });
+
+  var memeDataSource = new kendo.Backbone.DataSource({
+    collection: memeCollection,
+    autoSync: true,
+
+    schema: {
+      model: {
+        fields: {
+          url: "string",
+          name: "string",
+          preview: "string"
         }
       }
-    }),
+    }
 
+  });
+
+  $(".grid").kendoGrid({
+    dataSource: memeDataSource,
     columns: [
       {
         title: "Preview",
@@ -52,16 +60,6 @@ $(function(){
     ],
     toolbar: ["create"],
     editable: "popup"
-  });
-
-  var grid = $(".grid").data("kendoGrid");
-
-  grid.dataSource.bind("change", function(){
-    console.log("grid changed", grid.dataSource.view());
-  });
-
-  memeCollection.on("add", function(model){
-    console.log("added a model:", model.get("name"), model.get("url"));
   });
 
   function showImagePreview(container, options){

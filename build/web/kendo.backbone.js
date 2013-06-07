@@ -108,8 +108,8 @@
   //
   // Define a transport that will move data between
   // the kendo DataSource and the Backbone Collection
-  var BackboneTransport = function(collection){
-    this._collection = collection;
+  var BackboneTransport = function(colWrap){
+    this.colWrap = colWrap;
   };
   
   // add basic CRUD operations to the transport
@@ -117,19 +117,21 @@
 
     create: function(options) {
       var data = options.data;
+
       // create the model in the collection
-      this._collection.add(data);
+      this.colWrap.add(data);
+
       // tell the DataSource we're done
       options.success(data);
     },
 
     read: function(options) {
-      options.success(this._collection.toJSON());
+      options.success(this.colWrap.collection.toJSON());
     },
 
     update: function(options) {
       // find the model
-      var model = this._collection.get(options.data.id);
+      var model = this.colWrap.collection.get(options.data.id);
 
       // update the model
       model.set(options.data);
@@ -140,13 +142,51 @@
 
     destroy: function(options) {
       // find the model
-      var model = this._collection.get(options.data.id);
+      var model = this.colWrap.collection.get(options.data.id);
 
       // remove the model
-      this._collection.remove(model);
+      this.colWrap.collection.remove(model);
 
       // tell the DataSource we're done
       options.success(options.data);
+    }
+  });
+
+  // Backbone.Collection Wrapper
+  // ---------------------------
+  //
+  // Wrap a Collection with DataSource configuration so that
+  // the two-way integration can occur without infinite loops
+
+  var CollectionWrapper = function(collection, dataSource){
+    this.collection = collection;
+    this.dataSource = dataSource;
+
+    this.listenTo(this.collection, "add", this._addToDataSource);
+  };
+
+  _.extend(CollectionWrapper.prototype, Backbone.Events, {
+    add: function(){
+      var args = Array.prototype.slice.call(arguments);
+
+      // gate the add that came through the collection directly
+      if (!this.addFromCol){
+        this.addFromDS = true;
+        this.collection.add.apply(this.collection, args);
+        this.addFromDS = false;
+      }
+    },
+
+    _addToDataSource: function(model){
+      // gate the add that came through the datasource directly
+      if (!this.addFromDS){
+        this.addFromCol = true;
+
+        var data = model.toJSON();
+        this.dataSource.add(data);
+
+        this.addFromCol = false;
+      }
     }
   });
 
@@ -158,15 +198,14 @@
   kendo.Backbone.DataSource = kendo.data.DataSource.extend({
     init: function(options) {
       var collection = options.collection;
+      var colWrap = new CollectionWrapper(collection, this);
 
       // configure the Backbone transport 
-      var bbtrans = new BackboneTransport(collection);
+      var bbtrans = new BackboneTransport(colWrap);
       _.defaults(options, { transport: bbtrans });
 
-      // Setup default schema, if none is provided
-      options = setupDefaultSchema(options, collection);
-
       // initialize the datasource with the new configuration
+      options = setupDefaultSchema(options, collection);
       kendo.data.DataSource.prototype.init.call(this, options);
     }
   }); 

@@ -7,8 +7,10 @@
         el: $(".backbone-form")
       });
 
+      var that = this;
       form.on("save", function(data){
-        collection.add(data);
+        console.log('saving to the collection');
+        that.collection.add(data);
       });
     }
   };
