@@ -5,6 +5,25 @@ block javascripts
   script(src="/js/grid-datasource-backbone.js")
   script(src="/js/grid-datasource.js")
 
+  script#marionette-grid-template(type="text/html")
+    thead
+      tr
+        th Image
+        th Name
+        th URL
+        th Tags
+        th
+    tbody.alt-rows
+
+  script#marionette-grid-row-template(type="text/html")
+    td 
+      img(src!="<%= url %>", width="100")
+    td <%= name %>
+    td <%= url %>
+    td <%= tags.join(", ") %>
+    td
+      button.destroy DESTROY!
+
 block content
   header
     h2 Meme Database
@@ -35,5 +54,7 @@ block content
         .input
           button.save Add
           button Cancel
+
+  .backbone-grid
 
   .grid

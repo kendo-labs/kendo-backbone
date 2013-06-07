@@ -2,7 +2,11 @@
   global.GridBackboneApp = {
     init: function(collection){
       this.collection = collection;
+      this.setupForm();
+      this.setupGrid();
+    }, 
 
+    setupForm: function(){
       var form = new Form({
         el: $(".backbone-form")
       });
@@ -12,8 +16,42 @@
         console.log('saving to the collection');
         that.collection.add(data);
       });
+    },
+
+    setupGrid: function(){
+      var gridView = new GridView({
+        collection: this.collection
+      });
+
+      gridView.on("itemview:model:destroy", function(model){
+        console.log("DESTROY", model);
+        this.collection.remove(model);
+      });
+
+      gridView.render();
+      $(".backbone-grid").html(gridView.$el);
     }
   };
+
+  var RowView = Marionette.ItemView.extend({
+    tagName: "tr",
+    template: "#marionette-grid-row-template",
+
+    events: {
+      "click .destroy": "destroyClicked"
+    },
+
+    destroyClicked: function(e){
+      e.preventDefault();
+      this.trigger("model:destroy", this.model);
+    }
+  });
+
+  var GridView = Marionette.CompositeView.extend({
+    tagName: "table",
+    template: "#marionette-grid-template",
+    itemView: RowView
+  });
 
   var Form = Backbone.View.extend({
     
