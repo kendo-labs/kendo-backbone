@@ -33,12 +33,8 @@
     create: function(options) {
       var data = options.data;
 
-      if (!this.colWrap.addFromCol){
-        // create the model in the collection
-        this.colWrap.addFromDS = true;
-        this.colWrap.collection.add(data);
-        this.colWrap.addFromDS = false;
-      }
+      // create the model in the collection
+      this.colWrap.add(data);
 
       // tell the DataSource we're done
       options.success(data);
@@ -75,7 +71,16 @@
   // ---------------------------
   function wrapCollection(collection, dataSource){
     var wrapper = {
-      collection: collection
+      collection: collection,
+
+      add: function(){
+        var args = Array.prototype.slice.call(arguments);
+        if (!this.addFromCol){
+          this.addFromDS = true;
+          this.collection.add.apply(this.collection, args);
+          this.addFromDS = false;
+        }
+      }
     };
 
     // bind to the collection events to update the datasource

@@ -56,9 +56,12 @@ $(function(){
 
   var grid = $(".grid").data("kendoGrid");
 
+  grid.dataSource.bind("change", function(){
+    console.log("grid changed", grid.dataSource.view());
+  });
+
   memeCollection.on("add", function(model){
     console.log("added a model:", model.get("name"), model.get("url"));
-    grid.refresh();
   });
 
   function showImagePreview(container, options){
