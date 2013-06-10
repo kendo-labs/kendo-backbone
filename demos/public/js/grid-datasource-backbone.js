@@ -40,6 +40,10 @@
       "click .destroy": "destroyClicked"
     },
 
+    modelEvents: {
+      "change": "render"
+    },
+
     destroyClicked: function(e){
       e.preventDefault();
       this.trigger("model:destroy", this.model);
