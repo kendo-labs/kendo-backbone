@@ -1,6 +1,6 @@
 // Kendo-Backbone
 // --------------
-// v0.0.3
+// v0.0.4
 //
 // Copyright (c)2013 Telerik. All Rights Reserved.
 // Distributed under Apache 2.0 license
@@ -13,39 +13,6 @@
   // add a backbone namespace from which
   // to hang everything
   kendo.Backbone = kendo.Backbone || {};
-
-// kendo.backbone.factory
-// ----------------------
-//
-// Internal object to store / retrieve
-// types. A very simple alternative to
-// complex solutions like requirejs.
-// 
-// This object should not be used
-// outside of kendo.backbone's internal
-// uses.
-kendo.Backbone.factory = (function(){
-  "use strict";
-
-  // from http://www.140byt.es/keywords/new
-  function create(a,b,c){return(create[c=b?-~b.length:1]||(create[c]=Function("a,b,c","return new a("+Array(c).join(",b[c++]").slice(1)+")")))(a,b,0)}
-
-  var factory = {
-    types: {},
-
-    register: function(name, type){
-      this.types[name] = type;
-    },
-
-    build: function(name, args){
-      var args = Array.prototype.splice.call(arguments, 1);
-      return create(this.types[name], args);
-    }
-  };
-
-  return factory;
-})();
-
 
 // Kendo-Backbone Model
 // --------------------
@@ -124,10 +91,12 @@ kendo.Backbone.factory = (function(){
 // BackboneTransport
 // -----------------
 //
+// INTERNAL TYPE
+//
 // Define a transport that will move data between
 // the kendo DataSource and the Backbone Collection
 
-kendo.Backbone.factory.register("BackboneTransport", (function(){
+kendo.Backbone.BackboneTransport = (function(){
   "use strict";
 
   // Constructor Function
@@ -177,27 +146,31 @@ kendo.Backbone.factory.register("BackboneTransport", (function(){
   });
 
   return Transport;
-})());
+})();
 
-kendo.Backbone.factory.register("CollectionWrapper", (function(){
+// Backbone.Collection Adapter
+// ---------------------------
+//
+// INTERNAL TYPE
+//
+// Wrap a Collection with DataSource configuration so that
+// the two-way integration can occur without infinite loops
+
+kendo.Backbone.CollectionAdapter = (function(){
   "use strict";
 
-  // Backbone.Collection Wrapper
-  // ---------------------------
-  // Wrap a Collection with DataSource configuration so that
-  // the two-way integration can occur without infinite loops
-
   // Constructor function
-  function Wrapper(collection, dataSource){
+  function Adapter(collection, dataSource){
     this.collection = collection;
     this.dataSource = dataSource;
 
     this.listenTo(this.collection, "add", this._addToDataSource);
     this.listenTo(this.collection, "remove", this._removeFromDataSource);
+    this.listenTo(this.collection, "reset", this._resetDataSource);
   };
 
   // Instance methods
-  _.extend(Wrapper.prototype, Backbone.Events, {
+  _.extend(Adapter.prototype, Backbone.Events, {
     add: function(){
       var args = Array.prototype.slice.call(arguments);
 
@@ -227,11 +200,15 @@ kendo.Backbone.factory.register("CollectionWrapper", (function(){
       if (dsModel){
         this.dataSource.remove(dsModel);
       }
+    },
+
+    _resetDataSource: function(){
+      this.dataSource.read();
     }
   });
 
-  return Wrapper;
-})());
+  return Adapter;
+})();
 
 // Kendo UI: kendo.backbone.DataSource
 // -----------------------------------
@@ -259,10 +236,10 @@ kendo.Backbone.DataSource = (function($, kendo, _) {
     init: function(options) {
       // build a collection wrapper for the backbone.collection
       var collection = options.collection;
-      var colWrap = kendo.Backbone.factory.build("CollectionWrapper", collection, this);
+      var colWrap = new kendo.Backbone.CollectionAdapter(collection, this);
 
       // configure the Backbone transport with the collection
-      var bbtrans = kendo.Backbone.factory.build("BackboneTransport", colWrap);
+      var bbtrans = new kendo.Backbone.BackboneTransport(colWrap);
       _.defaults(options, { transport: bbtrans });
 
       // initialize the datasource with the new configuration
