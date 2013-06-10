@@ -1,3 +1,9 @@
+## v0.0.4 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.3...v0.0.4)
+
+* kendo.Backbone.DataSource
+  * Supports two-way sync between the Backbone.Collection and
+    kendo.data.DataSource, for "add" and "remove".
+
 ## v0.0.3 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.2...v0.0.3)
 
 * kendo.Backbone.DataSource

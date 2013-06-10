@@ -1,9 +1,9 @@
 {
   "name": "kendo-backbone",
-  "description": "",
-  "version": "0.0.3",
+  "description": "Kendo UI and BackboneJS integration. Part of the KendoUI-Labs.",
+  "version": "0.0.4",
   "homepage": "https://github.com/kendo-labs/kendo-backbone",
-  "private": true,
+  "private": false,
   "keywords": [
     "backbone",
     "plugin",

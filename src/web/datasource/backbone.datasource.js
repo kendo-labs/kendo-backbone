@@ -24,10 +24,10 @@ kendo.Backbone.DataSource = (function($, kendo, _) {
     init: function(options) {
       // build a collection wrapper for the backbone.collection
       var collection = options.collection;
-      var colWrap = kendo.Backbone.factory.build("CollectionWrapper", collection, this);
+      var colWrap = new kendo.Backbone.CollectionAdapter(collection, this);
 
       // configure the Backbone transport with the collection
-      var bbtrans = kendo.Backbone.factory.build("BackboneTransport", colWrap);
+      var bbtrans = new kendo.Backbone.BackboneTransport(colWrap);
       _.defaults(options, { transport: bbtrans });
 
       // initialize the datasource with the new configuration

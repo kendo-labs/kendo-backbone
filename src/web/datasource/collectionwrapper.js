@@ -1,13 +1,16 @@
-kendo.Backbone.factory.register("CollectionWrapper", (function(){
+// Backbone.Collection Adapter
+// ---------------------------
+//
+// INTERNAL TYPE
+//
+// Wrap a Collection with DataSource configuration so that
+// the two-way integration can occur without infinite loops
+
+kendo.Backbone.CollectionAdapter = (function(){
   "use strict";
 
-  // Backbone.Collection Wrapper
-  // ---------------------------
-  // Wrap a Collection with DataSource configuration so that
-  // the two-way integration can occur without infinite loops
-
   // Constructor function
-  function Wrapper(collection, dataSource){
+  function Adapter(collection, dataSource){
     this.collection = collection;
     this.dataSource = dataSource;
 
@@ -16,7 +19,7 @@ kendo.Backbone.factory.register("CollectionWrapper", (function(){
   };
 
   // Instance methods
-  _.extend(Wrapper.prototype, Backbone.Events, {
+  _.extend(Adapter.prototype, Backbone.Events, {
     add: function(){
       var args = Array.prototype.slice.call(arguments);
 
@@ -49,5 +52,5 @@ kendo.Backbone.factory.register("CollectionWrapper", (function(){
     }
   });
 
-  return Wrapper;
-})());
+  return Adapter;
+})();

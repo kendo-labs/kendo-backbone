@@ -1,10 +1,12 @@
 // BackboneTransport
 // -----------------
 //
+// INTERNAL TYPE
+//
 // Define a transport that will move data between
 // the kendo DataSource and the Backbone Collection
 
-kendo.Backbone.factory.register("BackboneTransport", (function(){
+kendo.Backbone.BackboneTransport = (function(){
   "use strict";
 
   // Constructor Function
@@ -54,4 +56,4 @@ kendo.Backbone.factory.register("BackboneTransport", (function(){
   });
 
   return Transport;
-})());
+})();

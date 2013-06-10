@@ -80,7 +80,6 @@ module.exports = function(grunt) {
       web : {
         src : [
           'src/web/build/kendo.backbone.js',
-          'src/factory/factory.js',
           'src/web/**/*.js'
         ]
       }
