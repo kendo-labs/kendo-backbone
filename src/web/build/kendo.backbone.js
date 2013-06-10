@@ -5,13 +5,11 @@
   // to hang everything
   kendo.Backbone = kendo.Backbone || {};
 
-// @include ../../factory/factory.js
-
 // @include ../kendo.backbone.model.js
 // @include ../kendo.backbone.collection.js
 
 // @include ../datasource/backbonetransport.js
-// @include ../datasource/collectionwrapper.js
+// @include ../datasource/collectionadapter.js
 // @include ../datasource/backbone.datasource.js
  
 })(this, kendo);
