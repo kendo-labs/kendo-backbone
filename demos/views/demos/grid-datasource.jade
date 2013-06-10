@@ -19,7 +19,6 @@ block javascripts
     td 
       img(src!="<%= url %>", width="100")
     td <%= name %>
-    td <%= url %>
     td <%= tags.join(", ") %>
     td
       button.destroy DESTROY!
@@ -62,8 +61,11 @@ block content
           &nbsp;
           button.btn Cancel
 
-  h3 Backbone Grid
-  .backbone-grid
+  .row
+    .span5
+      h3 Backbone Grid
+      .backbone-grid
 
-  h3 Kendo UI Grid
-  .grid
+    .span5
+      h3 Kendo UI Grid
+      .grid

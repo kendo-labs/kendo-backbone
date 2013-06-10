@@ -49,10 +49,6 @@ $(function(){
         field: "name",
       },
       {
-        title: "URL",
-        field: "url"
-      },
-      {
         title: "Tags",
         template: function(data){
           return data.tags.join(", ");

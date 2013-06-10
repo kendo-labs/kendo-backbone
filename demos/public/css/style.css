@@ -3,6 +3,6 @@ footer {
   margin-bottom: 10px;
 }
 
-tbody.alt-rows tr:nth-child(odd) {
+.backbone-grid tbody.alt-rows tr:nth-child(odd) {
   background-color: #eee;
 }
