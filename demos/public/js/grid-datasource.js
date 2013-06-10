@@ -19,14 +19,16 @@ $(function(){
 
   var memeDataSource = new kendo.Backbone.DataSource({
     collection: memeCollection,
-    autoSync: true,
 
     schema: {
       model: {
         fields: {
           url: "string",
           name: "string",
-          preview: "string"
+          preview: "string",
+          tags: {
+            defaultValue: []
+          }
         }
       }
     }
