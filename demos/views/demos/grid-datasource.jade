@@ -40,19 +40,27 @@ block content
       | These are features that will be facilitated in later releases.
 
   h3 Backbone Form
-    form.backbone-form
-      .input
-        label Name 
+    form.form-horizontal.backbone-form
+      .control-group
+        label.control-label Name 
+        .controls
           input(name="name")
-      .input
-        label URL 
+      .control-group
+        label.control-label URL 
+        .controls
           input(name="url")
-      .input
-        label Tags 
-          input(name="tags")
-      .input
-        button.save Add
-        button Cancel
+      .control-group
+        label.control-label 
+          | Tags 
+          br
+          sub (comma-delimited)
+        .controls
+          textarea(name="tags")
+      .control-group
+        .controls
+          button.btn.btn-primary.save Add
+          &nbsp;
+          button.btn Cancel
 
   h3 Backbone Grid
   .backbone-grid
