@@ -49,10 +49,12 @@ $(function(){
         field: "name",
       },
       {
+        title: "URL",
+        field: "url"
+      },
+      {
         title: "Tags",
-        template: function(data){
-          return data.tags.join(", ");
-        }
+        template: "#= tags.join(', ') #"
       },
       { command: ["edit", "destroy"] }
     ],
@@ -61,6 +63,7 @@ $(function(){
   });
 
   function showImagePreview(container, options){
+    console.log("image preview");
     var imagePreview = $("<img width='100' data-bind='attr: {src: url}'>");
     kendo.bind(imagePreview, options.model);
     container.append(imagePreview);

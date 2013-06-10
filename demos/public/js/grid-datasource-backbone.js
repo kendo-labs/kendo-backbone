@@ -67,7 +67,7 @@
 
       // split the tags input by "," and remove the
       // left over spaces for the tags
-      var tags = this.$("input[name='tags']").val();
+      var tags = this.$("textarea[name='tags']").val();
       tags = tags.trim().split(/\s*,\s*/g);
 
       var data = {
