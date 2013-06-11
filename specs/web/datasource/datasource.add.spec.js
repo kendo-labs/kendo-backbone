@@ -1,13 +1,17 @@
-describe("Kendo UI Backbone DataSource - add", function(){
+describe("Kendo UI Backbone DataSource - Add To DataSource", function(){
 
   describe("when adding a record to the datasource that does not have a schema defined, and no Backbone.Model.idAttribute has been defined", function(){
     var ds, collection, item;
     
     beforeEach(function(){
-      collection = new Backbone.Collection();
+      collection = new TestCollection();
       ds = new kendo.Backbone.DataSource({
         collection: collection,
         autoSync: true
+      });
+
+      collection.on("add", function(model){
+        item = model;
       });
 
       var foo = ds.add({name: "foo", foo: "bar", baz: "quux"});
@@ -21,6 +25,11 @@ describe("Kendo UI Backbone DataSource - add", function(){
       expect(ds.options.schema.model.id).toBe("id");
     });
 
+    it("should add the id to the datasource record, from the collection", function(){
+      expect(item.id).not.toBe("");
+      expect(ds.view()[0].id).toBe(item.id);
+    });
+
   });
 
   describe("when adding a record to the datasource that does not have a schema defined, and a Backbone.Model.idAttribute has been defined", function(){
@@ -30,7 +39,7 @@ describe("Kendo UI Backbone DataSource - add", function(){
       idAttribute: "myId"
     });
 
-    var Collection = Backbone.Collection.extend({
+    var Collection = TestCollection.extend({
       model: Model
     });
     
@@ -58,7 +67,7 @@ describe("Kendo UI Backbone DataSource - add", function(){
     var ds, collection, item;
 
     beforeEach(function(){
-      collection = new Backbone.Collection();
+      collection = new TestCollection();
       ds = new kendo.Backbone.DataSource({
         schema: {
           model: {

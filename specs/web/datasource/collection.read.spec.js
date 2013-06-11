@@ -4,7 +4,7 @@ describe("Kendo UI Backbone DataSource - Read Backbone Collection", function(){
     var ds, collection, item;
     
     beforeEach(function(){
-      collection = new Backbone.Collection();
+      collection = new TestCollection();
       ds = new kendo.Backbone.DataSource({
         collection: collection,
         autoSync: true
@@ -31,7 +31,7 @@ describe("Kendo UI Backbone DataSource - Read Backbone Collection", function(){
     var ds, collection, item;
     
     beforeEach(function(){
-      collection = new Backbone.Collection([{id: 2, name: "boo", foo: "far", baz: "books"}]);
+      collection = new TestCollection([{id: 2, name: "boo", foo: "far", baz: "books"}]);
       ds = new kendo.Backbone.DataSource({
         collection: collection,
         autoSync: true

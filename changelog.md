@@ -1,3 +1,9 @@
+## v0.0.5 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.4...v0.0.5)
+
+* kendo.Backbone.DataSource
+  * **BREAKING** Adding a model to the DataSource now forces a Backbone `collection.create` and must bring back an `id` on the model
+  * Fixed issue with adding multiple items to DataSource
+
 ## v0.0.4 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.3...v0.0.4)
 
 * kendo.Backbone.DataSource

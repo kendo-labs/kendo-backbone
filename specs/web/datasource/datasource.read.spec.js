@@ -4,7 +4,7 @@ describe("Kendo UI Backbone DataSource - read", function(){
     var ds, collection, items;
 
     beforeEach(function(){
-      var collection = new Backbone.Collection([
+      var collection = new TestCollection([
         {id: 1, name: "foo"},
         {id: 2, name: "bar"},
         {id: 3, name: "baz"}

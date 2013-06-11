@@ -1,6 +1,10 @@
 $(function(){
 
-  var memeCollection = new Backbone.Collection([
+  var MemeCollection = Backbone.Collection.extend({
+    localStorage: new Backbone.LocalStorage("meme-list")
+  });
+
+  var memeCollection = new MemeCollection([
     { id: 1, name: "spring cleaning", url: "/images/memes/28067008.jpg", tags: ["foo", "bar", "baz"] },
     { id: 2, name: "like a boss", url: "/images/memes/CatLikeaBoss.jpg", tags: ["baz", "quux", "widget"] },
     { id: 3, name: "infinite high five", url: "/images/memes/high-fives.gif", tags: ["wombat", "wambo", "bamboo"] },

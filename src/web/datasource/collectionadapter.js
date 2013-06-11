@@ -21,13 +21,28 @@ kendo.Backbone.CollectionAdapter = (function(){
 
   // Instance methods
   _.extend(Adapter.prototype, Backbone.Events, {
-    add: function(){
-      var args = Array.prototype.slice.call(arguments);
-
-      // gate the add that came through the collection directly
-      if (!this.addFromCol){
+    create: function(data, cb){
+      if (this.addFromCol){
+        // gate the add that came through the collection directly
+        cb(data);
+      } else {
         this.addFromDS = true;
-        this.collection.add.apply(this.collection, args);
+
+        // ensure the id is cleared out, not just
+        // an empty string
+        if (!data.id){data.id = null}
+
+        // add the model to the collection, and
+        // for the return so that we can get the
+        // id from the new model, and send it to
+        // the datasource
+        this.collection.create(data, {
+          wait: true,
+          success: function(model){
+            cb(model.toJSON());
+          }
+        });
+
         this.addFromDS = false;
       }
     },

@@ -22,10 +22,10 @@ kendo.Backbone.BackboneTransport = (function(){
       var data = options.data;
 
       // create the model in the collection
-      this.colWrap.add(data);
-
-      // tell the DataSource we're done
-      options.success(data);
+      this.colWrap.create(data, function(model){
+        // tell the DataSource we're done
+        options.success(model);
+      });
     },
 
     read: function(options) {

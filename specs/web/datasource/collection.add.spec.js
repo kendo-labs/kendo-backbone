@@ -4,7 +4,7 @@ describe("Kendo UI Backbone DataSource - Add To Backbone Collection", function()
     var ds, collection, item;
     
     beforeEach(function(){
-      collection = new Backbone.Collection();
+      collection = new TestCollection();
       ds = new kendo.Backbone.DataSource({
         collection: collection,
         autoSync: true

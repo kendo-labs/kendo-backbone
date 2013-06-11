@@ -5,7 +5,7 @@ describe("Kendo UI Backbone DataSource - Remove From Backbone Collection", funct
     
     beforeEach(function(){
       item = new Backbone.Model({id: 1, name: "foo", foo: "bar", baz: "quux"});
-      collection = new Backbone.Collection(item);
+      collection = new TestCollection(item);
 
       ds = new kendo.Backbone.DataSource({
         collection: collection,

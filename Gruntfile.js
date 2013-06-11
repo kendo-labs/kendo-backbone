@@ -64,6 +64,7 @@ module.exports = function(grunt) {
           'vendor/jquery.js',
           'vendor/underscore.js',
           'vendor/backbone.js',
+          'vendor/backbone.localstorage.js',
           'vendor/kendo.all.min.js'
         ],
       },
@@ -133,7 +134,7 @@ module.exports = function(grunt) {
 
   // register tasks
   
-  grunt.registerTask('default', ['jshint', 'jasmine:webCoverage', 'preprocess', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'preprocess', 'concat', 'uglify']);
   grunt.registerTask('test', ['jshint', 'jasmine:web']);
   grunt.registerTask('dev', ['test', 'watch:web']);
   grunt.registerTask('server', ['jasmine:web:build', 'connect:server', 'watch:server']);

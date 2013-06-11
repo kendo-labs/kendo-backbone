@@ -8,10 +8,20 @@ Web control.
 The `kendo.Backbone.DataSource` provides a custom [transport](http://docs.kendoui.com/api/framework/datasource#configuration-transport)
 implementation for a [kendo.data.DataSource](http://docs.kendoui.com/api/framework/datasource), 
 using the Backbone.Collection instance as the underlying data 
-store for the DataSource. It provides automatic synchronization 
-between the DataSource instance and the Backbone.Collection instance, 
-but it does not force persistence through the Backbone.Collection 
-sync methods.
+store for the DataSource. It provides 2-way, automatic synchronization 
+between the DataSource instance and the Backbone.Collection instance.
+
+### Forced `create` On Sync From DataSource To Collection
+
+When adding a model to the `kendo.Backbone.DataSource` instance,
+a call to the referenced Backbone.Collection's `create` method will be
+made, to add the model to the collection and persist it to the server.
+A `wait: true` option is passed to the `create` method, forcing the
+create call to wait for the server to respond. The server must respond
+with an `id` field (as configured in the collection). If no id field 
+is returned from the server, the DataSource will assume the model is
+not yet persisted to the server. This will cause problems in 
+synchronizing additional models from the DataSource to the Collection.
 
 ## Basic Use
 
