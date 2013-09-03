@@ -12,4 +12,6 @@
 // @include ../datasource/collectionadapter.js
 // @include ../datasource/backbone.datasource.js
  
+// @include ../kendo.backbone.viewevents.js
+
 })(this, kendo);

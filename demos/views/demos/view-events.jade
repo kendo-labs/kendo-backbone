@@ -4,7 +4,12 @@ block javascripts
   link(rel="stylesheet", href="/css/view-events.css")
   script(src="/js/build/web/kendo.backbone.js")
   script(src="/js/view-events.js")
-  script#template(type="text/x-kendo-tmpl")
+
+  script#drink-list-template(type="text/html")
+    #listView
+    #pager.k-pager-wrap
+
+  script#drink-item-template(type="text/x-kendo-tmpl")
     .product
       img(src="http://demos.kendoui.com/content/web/foods/${ProductID}.jpg", alt="${ProductName} image")
       h3 #: ProductName #
@@ -13,6 +18,4 @@ block javascripts
 block content
   #example.k-content
     .demo-section
-      #listView
-      #pager.k-pager-wrap
 

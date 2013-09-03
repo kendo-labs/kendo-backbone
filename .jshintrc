@@ -16,6 +16,7 @@
     "Backbone": true,
     "$": true,
     "_": true,
-    "kendo": true
+    "kendo": true,
+    "console": true
   }
 }
