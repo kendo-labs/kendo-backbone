@@ -15,20 +15,30 @@
 
 kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
   var eventSplitter = /^(\S+)\s*(.*)$/;
+  var eventConfigName = "kendoUIEvents";
 
   var ViewEvents = {
 
     delegate: function(view) {
-      var webEvents = _.result(view, 'kendoUIEvents');
-      if (webEvents){
-        this._delegateEvents(view, webEvents, kendo.ui);
-      }
+      this._processEvents(view, function(widget, eventName, method){
+        widget.bind(eventName, method);
+      });
     },
 
     undelegate: function(view){
+      this._processEvents(view, function(widget, eventName, method){
+        console.log("unbinding", eventName, method);
+        widget.unbind(eventName, method);
+      });
     },
 
-    _delegateEvents: function(view, events, namespace){
+    _processEvents: function(view, cb){
+      var events = _.result(view, eventConfigName);
+      if (!events){ return; }
+      this._parseConfig(view, events, cb);
+    },
+
+    _parseConfig: function(view, events, cb){
       for (var key in events) {
         var method = events[key];
 
@@ -44,7 +54,7 @@ kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
                      kendo.widgetInstance(element, kendo.mobile.ui) ||
                      kendo.widgetInstance(element, kendo.dataviz.ui);
 
-        widget.bind(eventName, method);
+        cb.call(this, widget, eventName, method);
       }
     }
   };
