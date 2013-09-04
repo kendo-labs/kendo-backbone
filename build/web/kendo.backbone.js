@@ -315,11 +315,14 @@ kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
 
   var ViewEvents = {
 
-    delegate: function(view, events) {
-      if (!(events || (events = _.result(view, 'kendoUIEvents')))) { return view; }
+    delegate: function(view) {
+      var webEvents = _.result(view, 'kendoUIWeb');
+      if (webEvents){
+        this._delegateEvents(view, webEvents, kendo.ui);
+      }
+    },
 
-      this.undelegate();
-
+    _delegateEvents: function(view, events, namespace){
       for (var key in events) {
         var method = events[key];
 
@@ -333,10 +336,6 @@ kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
         var widget = kendo.widgetInstance(view.$(selector), kendo.ui);
         widget.bind(eventName, method);
       }
-      return view;
-    },
-
-    undelegate: function(){
     }
   };
 
