@@ -4,7 +4,7 @@ describe("Kendo UI Backbone.View Events", function(){
     var View = Backbone.View.extend({
       template: "<div id='list'></div>",
 
-      kendoUIWeb: {
+      kendoUIEvents: {
         "change #list": "listChanged"
       },
 

@@ -13,7 +13,7 @@ $(document).ready(function() {
   var DrinkList = Marionette.ItemView.extend({
     template: "#drink-list-template",
 
-    kendoUIWeb: {
+    kendoUIEvents: {
       "change #listView": "listViewChanged"
     },
 
