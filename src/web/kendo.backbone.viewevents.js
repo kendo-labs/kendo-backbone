@@ -17,32 +17,31 @@ kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
   var eventSplitter = /^(\S+)\s*(.*)$/;
   var eventConfigName = "kendoUIEvents";
 
+  var m;
+
   var ViewEvents = {
 
     delegate: function(view) {
       this._processEvents(view, function(widget, eventName, method){
+        m = method;
         widget.bind(eventName, method);
       });
     },
 
     undelegate: function(view){
       this._processEvents(view, function(widget, eventName, method){
-        console.log("unbinding", eventName, method);
-        widget.unbind(eventName, method);
+        widget.unbind(eventName);
       });
     },
 
     _processEvents: function(view, cb){
       var events = _.result(view, eventConfigName);
       if (!events){ return; }
-      this._parseConfig(view, events, cb);
-    },
 
-    _parseConfig: function(view, events, cb){
       for (var key in events) {
         var method = events[key];
 
-        if (!_.isFunction(method)) { method = view[events[key]]; }
+        if (!_.isFunction(method)) { method = view[method]; }
         if (!method) { continue; }
 
         var match = key.match(eventSplitter);
