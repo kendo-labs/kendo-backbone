@@ -1,6 +1,6 @@
 // Kendo-Backbone
 // --------------
-// v0.0.5
+// v0.0.6
 //
 // Copyright (c)2013 Telerik. All Rights Reserved.
 // Distributed under Apache 2.0 license
@@ -312,29 +312,45 @@ kendo.Backbone.DataSource = (function($, kendo, _) {
 
 kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
   var eventSplitter = /^(\S+)\s*(.*)$/;
+  var eventConfigName = "kendoUIEvents";
+
+  var m;
 
   var ViewEvents = {
 
     delegate: function(view) {
-      var webEvents = _.result(view, 'kendoUIWeb');
-      if (webEvents){
-        this._delegateEvents(view, webEvents, kendo.ui);
-      }
+      this._processEvents(view, function(widget, eventName, method){
+        m = method;
+        widget.bind(eventName, method);
+      });
     },
 
-    _delegateEvents: function(view, events, namespace){
+    undelegate: function(view){
+      this._processEvents(view, function(widget, eventName, method){
+        widget.unbind(eventName);
+      });
+    },
+
+    _processEvents: function(view, cb){
+      var events = _.result(view, eventConfigName);
+      if (!events){ return; }
+
       for (var key in events) {
         var method = events[key];
 
-        if (!_.isFunction(method)) { method = view[events[key]]; }
+        if (!_.isFunction(method)) { method = view[method]; }
         if (!method) { continue; }
 
         var match = key.match(eventSplitter);
         var eventName = match[1], selector = match[2];
         method = _.bind(method, view);
 
-        var widget = kendo.widgetInstance(view.$(selector), kendo.ui);
-        widget.bind(eventName, method);
+        var element = view.$(selector); 
+        var widget = kendo.widgetInstance(element, kendo.ui) ||
+                     kendo.widgetInstance(element, kendo.mobile.ui) ||
+                     kendo.widgetInstance(element, kendo.dataviz.ui);
+
+        cb.call(this, widget, eventName, method);
       }
     }
   };
