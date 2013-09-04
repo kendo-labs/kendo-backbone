@@ -25,6 +25,9 @@ kendo.Backbone.ViewEvents = (function($, kendo, Backbone, _) {
       }
     },
 
+    undelegate: function(view){
+    },
+
     _delegateEvents: function(view, events, namespace){
       for (var key in events) {
         var method = events[key];
