@@ -1,3 +1,7 @@
+## v0.0.6 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.5...v0.0.6)
+
+* Added kendo.Backbone.ViewEvents, and documentation for it
+
 ## v0.0.5 [view commit logs](https://github.com/kendo-labs/kendo-backbone/compare/v0.0.4...v0.0.5)
 
 * kendo.Backbone.DataSource

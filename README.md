@@ -47,6 +47,8 @@ sub-divided by the Kendo UI suite, specifically.
 
   * [kendo.Backbone.DataSource](docs/web/kendo.backbone.datasource.md) - use a
     Backbone.Collection instance as a DataSource for any Kendo UI web control
+  * [kendo.Backbone.ViewEvents](docs/web/kendo.backbone.viewevents.md) - bind 
+    to Kendo UI widget events in a Backbone.View, like Backbone.View `events`
 
 ## Demos
 
