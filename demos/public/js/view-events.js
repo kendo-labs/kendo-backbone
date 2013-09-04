@@ -18,7 +18,9 @@ $(document).ready(function() {
     },
 
     listViewChanged: function(e){
-      console.log("LIST VIEW CHANGED!!!!!");
+      var index = e.sender.select().index();
+      var dataItem = e.sender.dataSource.view()[index];
+      this.$("#result").html("<h3>You Selected " + dataItem.ProductName + "!</h3>");
     },
 
     onRender: function(){
