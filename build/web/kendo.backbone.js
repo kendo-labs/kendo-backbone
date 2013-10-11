@@ -233,11 +233,6 @@ kendo.Backbone.CollectionAdapter = (function(){
 // transport for a `kendo.data.DataSource`. This will provide basic
 // data-binding functionality for Kendo UI widgets and controls, such
 // as grids, list views, etc.
-//
-// Note that this is a largely untested experiment and hack. It is not 
-// intended for production use. It is intended to be a sample only, 
-// and is presented as-is with no implied stability and no guarantee 
-// to work properly with any of Kendo UI's control suite.
 
 kendo.Backbone.DataSource = (function($, kendo, _) {
   "use strict";
