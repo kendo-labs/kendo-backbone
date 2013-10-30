@@ -27,9 +27,9 @@ $(function(){
     schema: {
       model: {
         fields: {
-          url: "string",
-          name: "string",
-          preview: "string",
+          preview: { type: "string"},
+          url: { type: "string" },
+          name: { type: "string" },
           tags: {
             defaultValue: []
           }
