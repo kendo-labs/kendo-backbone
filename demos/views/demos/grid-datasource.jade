@@ -22,51 +22,61 @@ block javascripts
     td <%= url %>
     td <%= tags.join(", ") %>
     td
-      button.destroy DESTROY!
+      button.btn.btn-danger.destroy DESTROY!
 
 block content
-  header
-    h2 Meme Database
-    h4 Kendo UI Grid + kendo.Backbone.DataSource
-    p 
-      | Store your favorite memes and reaction gifs! This demo uses a
-      | standard Kendo UI Web Grid control, along with the 
-      a(href="https://github.com/kendo-labs/kendo-backbone") kendo.Backbone.DataSource 
-      | as the backing data source. It showcases the full CRUD
-      | capabilities of the custom DataSource.
-    p
-      b Note: 
-      | this does not yet support paging, sorting or filtering.
-      | These are features that will be facilitated in later releases.
+  .row
+    .col-sm-12
+      h2 Meme Database
+      h4 Kendo UI Grid + kendo.Backbone.DataSource
+      p 
+        | Store your favorite memes and reaction gifs! This demo uses a
+        | standard Kendo UI Web Grid control, along with the 
+        a(href="https://github.com/kendo-labs/kendo-backbone") kendo.Backbone.DataSource 
+        | as the backing data source. It showcases the full CRUD
+        | capabilities of the custom DataSource.
+      p
+        b Note: 
+        | this does not yet support paging, sorting or filtering.
+        | These are features that will be facilitated in later releases.
+  .row
+    .col-sm-12
+      hr
 
   h3 Backbone Form
-    form.form-horizontal.backbone-form
-      .control-group
-        label.control-label Name 
-        .controls
-          input(name="name")
-      .control-group
-        label.control-label URL 
-        .controls
-          input(name="url")
-      .control-group
-        label.control-label 
-          | Tags 
-          br
-          sub (comma-delimited)
-        .controls
-          textarea(name="tags")
-      .control-group
-        .controls
-          button.btn.btn-primary.save Add
+  form.form-horizontal.backbone-form
+    .form-group
+      label.col-sm-2.control-label Name 
+      .col-sm-4
+        input.form-control(name="name")
+    .form-group
+      label.col-sm-2.control-label URL 
+      .col-sm-4
+        input.form-control(name="url")
+    .form-group
+      label.col-sm-2.control-label 
+        | Tags 
+        br
+        sub (comma-delimited)
+      .col-sm-4
+        textarea.form-control(name="tags")
+    .form-group
+      .col-sm-4.col-sm-offset-2
+        .pull-right
+          button.btn.btn-link Cancel
           &nbsp;
-          button.btn Cancel
+          button.btn.btn-success.save Add
 
   .row
-    .span5
+    .col-sm-12
       h3 Backbone Grid
       .backbone-grid
 
-    .span5
+  .row
+    .col-sm-12
+      hr
+
+  .row
+    .col-sm-12
       h3 Kendo UI Grid
       .grid

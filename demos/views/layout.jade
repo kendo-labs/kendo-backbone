@@ -52,16 +52,16 @@ html
 
     .container
       .row
-        .span1 &nbsp;
-        .span10
+        .col-sm-12
           block content
-        .span1 &nbsp;
       .row
-        .span12 &nbsp;
-    footer.container
-      .row
-        .span1 &nbsp;
-        .span10
-          a.pull-right(href="http://labs.kendoui.com") Copyright &copy;#{new Date().getFullYear()} Telerik. All Rights Reserved.
-        .span1 &nbsp;
+        &nbsp;
+    footer
+      .container
+        .row
+          .col-sm-12
+            .pull-right
+              | Copyright &copy;#{new Date().getFullYear()} 
+              a(href="http://labs.kendoui.com") Telerik
+              |. All Rights Reserved.
 
