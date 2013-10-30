@@ -10,7 +10,7 @@ html
     link(rel="stylesheet", type="text/css", href="/bootstrap/css/bootstrap.css")
     link(rel="stylesheet", type="text/css", href="/css/style.css")
     link(rel="stylesheet", href="/telerik-navbar/css/nav-style.css")
-    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css")
 
     script(src="/jquery/jquery.js")
     script(src="/backbone/underscore.js")
@@ -39,7 +39,13 @@ html
             li
               h1 
                 | + BackboneJS
-          ul.nav.navbar-nav.navbar-right
+
+          ul.nav.navbar-nav
+            li &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          ul.nav.navbar-nav
+            li
+              a(href="/") Home
             li.dropdown
               a.dropdown-toggle(href="#", data-toggle="dropdown")
                 | Integration Demos 
@@ -49,6 +55,11 @@ html
                   a(href="/demos/grid-datasource") Grid + Backbone.DataSource
                 li
                   a(href="/demos/view-events") Widget Events + Backbone.View
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.btn.btn-primary.btn-lg(href="https://github.com/kendo-labs/kendo-backbone", target="_blank") 
+                i.fa.fa-github
+                |  Download
 
     .container
       .row
