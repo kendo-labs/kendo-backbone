@@ -2,3 +2,27 @@ footer {
   font-size: 8pt;
   margin-bottom: 10px;
 }
+
+.navbar {
+  padding-top: 30px;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
+}
+
+.navbar h1 {
+  margin: 2px 0px 0px 0px;
+  padding: 0px;
+}
+
+ul.nav.navbar-nav {
+  margin-top: 30px;
+  font-size: 14pt;
+}
+
+li.veritcal-divider {
+  padding: 0px;
+  margin: 10px 0px 0px 0px;
+  height: 35px;
+  width: 1px;
+  border-left: 1px solid #ccc;
+}

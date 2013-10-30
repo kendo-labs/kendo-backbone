@@ -9,6 +9,8 @@ html
     link(rel="stylesheet", type="text/css", href="/kendoui/css/kendo.bootstrap.min.css")
     link(rel="stylesheet", type="text/css", href="/bootstrap/css/bootstrap.css")
     link(rel="stylesheet", type="text/css", href="/css/style.css")
+    link(rel="stylesheet", href="/telerik-navbar/css/nav-style.css")
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
 
     script(src="/jquery/jquery.js")
     script(src="/backbone/underscore.js")
@@ -16,23 +18,37 @@ html
     script(src="/backbone/backbone.localstorage.js")
     script(src="/backbone/backbone.marionette.js")
     script(src="/kendoui/js/kendo.all.min.js")
+    script(src="/bootstrap/js/bootstrap.min.js")
+    script(src="/telerik-navbar/telerik-navigation.min.js")
 
     block javascripts
   body
-    
-    .navbar.navbar-static-top
-      .navbar-inner
-        .container
+    include telerik-navbar
 
-          span.brand
-            a(href="/")
-              img(src="/images/kendo-ui-logo.png")
-
-          ul.nav(style="padding-top: 20px;")
+    .navbar
+      .container
+        .navbar-header
+          button.button.navbar-toggle(data-toggle="collapse", data-target=".navbar-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="/")
+            img(src="/images/kendo-ui-logo.png")
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
             li
-              a(href="/demos/grid-datasource") Grid + Backbone.DataSource
-            li
-              a(href="/demos/view-events") Widget Events + Backbone.View
+              h1 
+                | + BackboneJS
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle(href="#", data-toggle="dropdown")
+                | Integration Demos 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href="/demos/grid-datasource") Grid + Backbone.DataSource
+                li
+                  a(href="/demos/view-events") Widget Events + Backbone.View
 
     .container
       .row
