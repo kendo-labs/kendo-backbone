@@ -17,6 +17,10 @@ footer {
   padding: 0px;
 }
 
+.navbar a.btn.btn-primary:hover {
+  background-color: #3275c1;
+}
+
 ul.nav.navbar-nav {
   margin-top: 30px;
   font-size: 14pt;

@@ -8,6 +8,10 @@
   min-width: 555px;
   min-height: 510px;
 }
+
+#pager {
+  width: 572px;
+}
 .product {
   float: left;
   position: relative;
@@ -58,4 +62,7 @@
   height: 0;
   clear: both;
   visibility: hidden;
+}
+.k-state-selected h3{
+  color: #fff;
 }
