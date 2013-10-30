@@ -52,6 +52,7 @@
 
   var GridView = Marionette.CompositeView.extend({
     tagName: "table",
+    className: "table table-bordered table-striped",
     template: "#marionette-grid-template",
     itemView: RowView
   });
