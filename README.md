@@ -1,3 +1,6 @@
+# Archived
+This project is no longer active.  It will not be deleted, but will not receive any updates nor have any maintenance performed.  It has been archived as a historical reference.
+
 # Kendo-Backbone
 
 Sample projects and extensions to integrate
